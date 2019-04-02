@@ -1,0 +1,92 @@
+﻿@model FanyiNetwork.Models.Client
+
+@{
+    Layout = "_Layout";
+}
+
+@section styles{
+
+}
+<div class="layout-content">
+    <div class="container">
+        <i-form :model="ClassInfo" ref="ClassInfo" :label-width="80">
+            <Row>
+                <a href=""></a>
+                <i-col span="24">
+                    <Form-item label="课程名称">
+                        <i-input v-model="ClassInfo.name"></i-input>
+                    </Form-item>
+                </i-col>
+                <i-col span="24">
+                    <Form-item label="大学名称">
+                        <i-input v-model="ClassInfo.university"></i-input>
+                    </Form-item>
+                </i-col>
+            </Row>
+            <Row>
+                <i-col span="24">
+                    <Form-item label="备注">
+                        <i-input v-model="ClassInfo.memo" type="textarea"></i-input>
+                    </Form-item>
+                </i-col>
+            </Row>
+            <Row style="text-align:center;">
+                <i-button type="primary" @@click="handleSubmit()">确定</i-button>
+                <a href="/class/index"><i-button type="ghost" style="margin-left: 8px">返回</i-button></a>
+            </Row>
+        </i-form>
+
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        moment.locale("zh-cn");
+
+        new Vue({
+            el: '#app',
+            data: {
+                ClassInfo: {
+
+                },
+            },
+            created: function () {
+                var _this = this;
+                var id;
+                var url = location.search;
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strNum = str.split("=");
+                    id = strNum[1];
+                }
+
+                axios.get("/api/Class/" + id).then(function (response) {
+                    _this.ClassInfo = response.data;
+                })
+            },
+            methods: {
+                handleSubmit: function (val) {
+                    if (confirm("确定修改当前课程信息么？")) {
+                        var _this = this;
+                        axios.post("/api/class/edit", this.ClassInfo).then(function (response) {
+
+                            _this.$Message.success('课程信息修改成功!');
+
+                            setTimeout(function () {
+                                window.location.href = "/class/index";
+                            }, 300);
+                        })
+                            .catch(function (error) {
+                                _this.$Message.error('修改课程信息失败!' + error.response.data);
+                            });
+                    }
+
+                },
+
+            }
+        })
+
+
+    </script>
+}

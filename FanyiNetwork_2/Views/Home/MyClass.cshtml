@@ -1,0 +1,204 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section styles{
+    <style type="text/css">
+        th {
+            text-align: center;
+        }
+
+        .Success {
+            color: #19be6b;
+        }
+
+        .Warning {
+            color: #ff9900;
+        }
+
+        .Error {
+            font-weight: bold;
+            color: #ed3f14;
+        }
+        #inquire {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+            #inquire span {
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 700;
+                color: #464c5b;
+            }
+
+        .review {
+            border: 0;
+            margin-top: 5px;
+        }
+
+        .order {
+            border: 0;
+            margin-top: 5px;
+        }
+
+        .lookAll {
+            border: 0;
+            margin-left: 1px;
+            position: relative;
+            left: -5px;
+            top: 1px;
+        }
+
+        .operation {
+            margin-top: 5px;
+            padding: 5px 3px 5px 3px;
+            height: 28px;
+            width: 62px;
+        }
+
+        .edit {
+            border: none;
+            padding: 0px;
+            width: 60px;
+            margin-top: 3px;
+        }
+
+        .del {
+            background-color: red;
+            border: none;
+            width: 60px;
+            margin-top: 2px;
+            margin-right: 5px;
+        }
+
+            .del:hover {
+                background-color: #E94242;
+            }
+        .ivu-table th {
+            text-align: center;
+        }
+
+        .ivu-table-cell {
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .ivu-table-stripe .ivu-table-body tr:nth-child(2n) td {
+            background-color: #f6feff;
+        }
+
+        .ivu-select-dropdown {
+            width: 100px;
+        }
+
+    </style>
+}
+
+<div class="layout-content">
+
+    <div class="container" style="max-width:100%;">
+        <div class="assignment-title" style="text-align:center; font-size:14px;">
+
+            <Icon type="person"></Icon>
+
+            <span style="margin-right:10px;">{{userName}}添加的课程</span>
+
+
+        </div>
+        <i-table :columns="columns" :data="addClass"></i-table>
+    </div>
+
+</div>
+@section scripts{
+    <script>
+
+    moment.locale("zh-cn");
+
+    var currentYear = moment().year();
+    var currentMonth = moment().month() + 1;
+
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            userName: "@Html.Raw(ViewData["userName"])",
+            userId: @Html.Raw(ViewData["userId"]),
+            columns: [
+                {
+                    title: '课程',
+                    key: 'name'
+                },
+                {
+                    title: '大学',
+                    key: 'university'
+                },
+                {
+                    title: '难度',
+                    key: 'difficulty'
+                },
+                {
+                    title: '教授',
+                    key: 'professor'
+                },
+                {
+                    title: '备注',
+                    key: 'memo'
+                },
+                {
+                    title: '订单',
+                    key: 'orderNum'
+                },
+                {
+                    title: '操作',
+                    render: function (row) {
+                        return '<div><i-button class="review"  type="info" style="padding: 5px 6px;margin-left:5px"  @@click="Add(' + row.id + ')">新建回顾</i-button><i-button class="order"  type="info" style="padding: 5px 6px;margin-left:5px"  @@click="orderForm(' + row.id + ')">新建订单</i-button><dropdown style= "margin-left: 5px"><i-button type="primary" class="operation" >课程操作<Icon type="arrow-down-b"></Icon></i-button><i-dropdownMenu slot="list"><i-button class="lookAll"  type="info" style="padding: 5px 6px;margin-left:5px"  @@click="GetOrder(' + row.id + ')">查看全部</i-button><i-button class="edit" type="info" style="padding: 5px 6px;margin-right:5px"  @@click="redirect(' + row.id + ')">编辑</i-button><i-button class="del" type="info" style="padding: 5px 6px"  @@click="terminate(' + row.id + ')">删除</i-button></i-dropdownMenu></dropdown></div>';
+                    }
+                }
+            ],
+                addClass: []
+        },
+        created: function () {
+            var _this = this;
+            console.log(_this);
+            this.fetchData();
+            },
+            methods: {
+                fetchData: function () {
+                    var _this = this;
+                    axios.get("/Class/GetClass?uid=" + _this.userId).then(function (response) {
+                        _this.addClass = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                redirect: function (val) {
+                    window.location.href = "/class/Edit?id=" + val;
+                },
+                terminate: function (val) {
+                    if (confirm("本操作无法更改确定删除吗?")) {
+                        var _this = this;
+                        axios.get("/api/class/del?id=" + val).then(function (response) {
+                            _this.$Message.success('删除成功!');
+                            setTimeout(function () {
+                                window.location.href = "/class/index";
+                            }, 300);
+                        }).catch(function (error) {
+                            _this.$Message.error('删除失败!' + error.response.data);
+                        });
+                    }
+                },
+                GetOrder: function (val) {
+                    window.location.href = "/ClassOrder/OrderInfo?Classid=" + val;
+                },
+                Add: function (val) {
+                    window.location.href = "/ReviewData/Index?id=" + val;
+                },
+                orderForm: function (val) {
+                    window.location.href = "/ClassOrder/Index?id=" + val;
+                }
+            }
+    })
+
+
+    </script>
+}

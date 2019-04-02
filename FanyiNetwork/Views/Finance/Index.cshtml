@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section styles{
+    <style type="text/css">
+
+    </style>
+}
+
+<i-menu mode="horizontal" active-name="1">
+    <div class="layout-assistant">
+        <Menu-item name="1">总览</Menu-item>
+        <Menu-item name="2">客户数据</Menu-item>
+        <Menu-item name="3">销售数据</Menu-item>
+        <Menu-item name="4">开支数据</Menu-item>
+        <Menu-item name="5">导入/导出</Menu-item>
+    </div>
+</i-menu>
+
+<div class="layout-content">
+
+</div>
+@section scripts{
+    <script>
+
+        moment.locale("zh-cn");
+
+        new Vue({
+            el: '#app',
+            data: {
+            }
+        })
+
+
+    </script>
+}

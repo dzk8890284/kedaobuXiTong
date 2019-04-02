@@ -1,0 +1,133 @@
+﻿
+@{
+    Layout = "_Layout";
+}
+
+@section styles{
+    <style>
+        .order{
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+    </style>
+}
+<div class="layout-content">
+    <div class="order">
+        新建课程订单
+    </div>
+    <div class="container">
+        <Alert show-icon>选择课程请前往<b><a href="/Class/Index">课程信息</a></b>页面，选择课程->新建订单。</Alert>
+        <i-form :model="ClassOrder" ref="ClassOrder" :rules="validateRules" :label-width="80" enctype="multipart/form-data">
+            <Row>
+                <i-col span="24">
+                    <Form-item label="课程名称">
+                        <i-input v-model="ClassInfos.name" readonly></i-input>
+                    </Form-item>
+                </i-col>
+            </Row>
+            <Row>
+                <i-col span="12">
+                    <Form-item label="客户" prop="Clientname">
+                        <i-select v-model="ClassOrder.client" filterable>
+                            <i-option v-for="item in Clients" :value="item.id" :key="item.id">{{ item.name }}</i-option>
+                        </i-select>
+                    </Form-item>
+                </i-col>
+                <i-col span="12">
+                    <Form-item label="应付金额" prop="Price">
+                        <i-input v-model="ClassOrder.Price" placeholder="请输入" style="width:65%; float:left;"></i-input>
+                        <i-select v-model="ClassOrder.Currency" placeholder="请选择币种" style="width:35%;">
+                            <i-option value="人民币">人民币</i-option>
+                            <i-option value="美金">美金</i-option>
+                            <i-option value="欧元">欧元</i-option>
+                            <i-option value="加拿大币">加拿大币</i-option>
+                            <i-option value="澳元">澳元</i-option>
+                        </i-select>
+                    </Form-item>
+                </i-col>
+            </Row>
+            <Row>
+
+            </Row>
+            <Form-item label="订单备注" property="memo">
+                <i-input v-model="ClassOrder.Memo" type="textarea" placeholder="请输入..."></i-input>
+            </Form-item>
+            <Form-item>
+                <Row>
+                    <i-col span="8">&nbsp;</i-col>
+                    <i-col span="8" style="text-align:center;">
+                        <i-button type="primary" @@click="handleSubmit('ClassOrder')">提交</i-button>
+                        <i-button type="ghost" @@click="handleReset('ClassOrder')" style="margin-left: 8px">重置</i-button>
+                    </i-col>
+                    <i-col span="8">&nbsp;</i-col>
+                </Row>
+            </Form-item>
+        </i-form>
+    </div>
+</div>
+@section scripts{
+    <script>
+
+        moment.locale("zh-cn");
+
+
+        new Vue({
+            el: '#app',
+            data: {
+                ClassInfos: {},
+                Clients: [],
+                ClassOrder: {},
+                id: "",
+                validateRules: {
+                    Clientname: [
+                        { required: true, message: '请填写客户名称', trigger: 'blur' }
+                    ],
+                    Price: [
+                        { required: true, message: '请填写金额和币种', trigger: 'blur' }
+                    ]
+                }
+            },
+            created: function () {
+                var _this = this;
+                console.log(_this);
+                var url = location.search;
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strNum = str.split("=");
+                    _this.id = strNum[1];
+                }
+                axios.get("/api/Class/" + _this.id).then(function (response) {
+                    _this.ClassInfos = response.data;
+                })
+                axios.get("/client/GetList").then(function (response) {
+                    _this.Clients = response.data;
+                }).catch(function (error) {
+                    _this.$Message.error('查询客户失败!' + error.response.data);
+                });
+            },
+            methods: {
+                handleSubmit: function () {
+                    var _this = this;
+                    _this.ClassOrder.classid = _this.id;
+                    if (this.ClassOrder.client == null || this.ClassOrder.Price.indexOf(" ") != -1 || this.ClassOrder.Currency == null) {
+                        return _this.$Message.error('提交失败!');
+                    } else {
+                        axios.post("/api/ClassOrder/create", this.ClassOrder).then(function (response) {
+                            _this.$Message.success('提交成功!');
+                            setTimeout(function () {
+                                window.location.href = "/home/index";
+                            }, 1000);
+                        }).catch(function (error) {
+                            _this.$Message.error('提交失败!' + error.response.data);
+                        });
+
+                    }
+
+                }
+            }
+        })
+
+    </script>
+}

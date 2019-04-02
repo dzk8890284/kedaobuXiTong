@@ -1,0 +1,116 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section styles{
+    <style type="text/css">
+        th {
+            text-align:center;
+        }
+        .Success {
+            color: #19be6b;
+        }
+        .Warning {
+            color: #ff9900;
+        }
+        .Error {
+            font-weight:bold;
+            color: #ed3f14;
+        }
+    </style>
+}
+
+
+<div class="layout-content">
+    <div class="container">
+
+        <div class="assignment-title">经理办</div>
+        <i-table :columns="teacher_column" :data="managers_stats"></i-table>
+
+        <div class="assignment-title">课导部主管</div>
+        <i-table :columns="teacher_column" :data="cheifTeachers_stats"></i-table>
+
+        <div class="assignment-title">课导部</div>
+        <i-table :columns="teacher_column" :data="teachers_stats"></i-table>
+    </div>
+</div>
+@section scripts{
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                managers_stats: [],
+                cheifTeachers_stats:[],
+                teachers_stats: [],
+                teacher_column: [
+                    {
+                        title: '姓名',
+                        key: 'name',
+                        render: function (row) {
+                            return '<Icon type="person"></Icon> ' + row.name;
+                        } 
+                    },
+                    {
+                        title: '订单中总数量',
+                        key: 'totalOrder',
+                        sortable: true
+                    },
+                    {
+                        title: '回顾资料总数量',
+                        key: 'totalStudyOrder',
+                        sortable: true
+                    },
+                    {
+                        title: '操作',
+                        render: function (row) {
+                            return '<i-button type="info" @@click="redirect(' + row.userid + ')">查看详情</i-button>';
+                        }
+                    }
+                ],
+            },
+            created: function () {
+                this.fetchData();
+            },
+            methods: {
+                fetchData: function () {
+                    var _this = this;
+
+                    axios.get("/api/user/GetTeacherStats", {
+                        params: {
+                            usergroup: "经理办"
+                        }
+                    }).then(function (response) {
+                        _this.managers_stats = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                        });
+
+                    axios.get("/api/user/GetTeacherStats", {
+                        params: {
+                            usergroup: "课导部主管"
+                        }
+                    }).then(function (response) {
+                        _this.cheifTeachers_stats = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                        });
+
+                    axios.get("/api/user/GetTeacherStats", {
+                        params: {
+                            usergroup: "课导部"
+                        }
+                    }).then(function (response) {
+                        _this.teachers_stats = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                redirect: function (val) {
+                    window.location.href = "/home/orderList?userid=" + val;
+                }
+            }
+        })
+
+
+    </script>
+}

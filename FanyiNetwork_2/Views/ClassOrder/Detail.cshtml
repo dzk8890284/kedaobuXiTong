@@ -1,0 +1,1390 @@
+@{
+    Layout = "_Layout";
+}
+
+@section styles{
+    <style type="text/css">
+        #inquire {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+            #inquire span {
+                display: inline-block;
+                font-size: 14px;
+                font-weight: 700;
+                color: #464c5b;
+            }
+
+        .basics {
+            border: 1px solid #d7dde4;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .basicstop {
+            border-bottom: 1px solid #d7dde4;
+            background-color: #F6F6F6;
+            height: 40px;
+            line-height: 40px;
+            padding-left: 20px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .basicsdown {
+            background-color: #ffffff;
+            height: 100px;
+            padding: 10px 20px 10px 20px;
+        }
+
+        .course {
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .remark {
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .weekly {
+            border: 1px solid #d7dde4;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .weeklylist {
+            display: block;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-bottom: 1px solid #D7DDE4;
+            color: black;
+        }
+
+            .weeklylist:hover {
+                color: black;
+            }
+
+        .weeklybutton {
+            width: 50%;
+            float: left;
+        }
+
+        .ivu-tabs-tab {
+            width: 183px;
+            margin-left: 2px;
+            text-align: center;
+        }
+
+        .tabs {
+            margin-left: 16px;
+        }
+
+        .ivu-tabs-bar {
+            margin-bottom: 0px;
+        }
+
+        .tabstab {
+            border-left: 1px solid #D7DDE4;
+            border-right: 1px solid #D7DDE4;
+            border-bottom: 1px solid #D7DDE4;
+            padding: 10px 10px 60px 10px;
+            position: relative;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            background-color: white;
+        }
+
+        #tabsbutton {
+            width: 200px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -100px;
+        }
+
+        .graded {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            margin-left: 125px;
+            font-size: 10px;
+            line-height: 0px;
+        }
+
+        img {
+            display: inline-block;
+            background-size: 150px 150px;
+            background-repeat: no-repeat;
+        }
+
+        .principal {
+            border: 1px solid #d7dde4;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .principaltop {
+            border-bottom: 1px solid #d7dde4;
+            background-color: #F6F6F6;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 20px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .principaldown {
+            background-color: #ffffff;
+            line-height: 30px;
+            padding: 10px;
+        }
+
+        .OrderOperation {
+            /*background-color: #ffffff;*/
+            line-height: 30px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        .accomplish {
+            margin-right: 10px;
+        }
+
+        .finishclass {
+            margin-right: 10px;
+        }
+
+        .restart {
+            margin-right: 10px;
+        }
+
+        .ivu-upload-list-file {
+            width: 140px;
+            float: left;
+        }
+
+        .demo-upload-list {
+            float: left;
+            width: 140px;
+            height: 140px;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 4px;
+            overflow: hidden;
+            background: #fff;
+            position: relative;
+            box-shadow: 0 1px 1px rgba(0,0,0,.2);
+            margin-right: 16px;
+            margin-left: 16px;
+            margin-bottom:10px;
+        }
+
+        .demo-upload-list img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .demo-upload-list-cover {
+            display: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,.6);
+        }
+
+        .demo-upload-list:hover .demo-upload-list-cover {
+            display: block;
+        }
+
+        .demo-upload-list-cover i {
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            margin: 0 2px;
+        }
+
+        .ivu-modal-body img {
+            width: 100%;
+        }
+
+        .ivu-icon-information-circled {
+            display: none;
+        }
+
+        .ivu-modal-confirm-head-title {
+            display: none;
+        }
+
+        .ivu-modal-confirm-body {
+            padding: 0;
+        }
+
+        .active {
+            background-color: #57C5F7;
+        }
+
+        .cs {
+            display: inline-block;
+            margin-right: 30px;
+        }
+
+        .teacher {
+            display: inline-block;
+            margin-right: 20%;
+            margin-left: 10px;
+        }
+
+        .isweeklybutton {
+            display: none;
+        }
+
+        .nocontent {
+            display:inline-block;
+            text-align: center;
+            margin-top: 20px;
+            /*margin: 0 auto;*/
+            /*display: none;*/
+        }
+
+        .isnocontent {
+            display: none;
+        }
+        .qqchat {
+            width:80px;
+            height:26px;
+            border:0px;
+        }
+        .weeklytype{
+            width:90%;
+        }
+        .newlyWeeklyContent {
+            height:42px;
+        }
+        .ivu-collapse {
+            border:0px;
+        } 
+        .ivu-collapse-content {
+            position: relative;
+            padding-bottom: 55px;
+        } 
+        .deleteContent {
+            position:absolute;
+            right:15px;
+            bottom:10px;
+        }
+        .time {
+            float:right;
+            margin-right:10px;
+        }
+        .operator {
+            margin-left:10px;
+        }
+        .handleToggleEdit {
+            float:right;
+            margin-top:4px;
+            margin-right:10px;
+        }
+        .Mbi {
+            padding:0px 10px 0px 10px;
+        }
+    </style>
+}
+<div class="layout-content">
+    <div class="container">
+        <i-col span="24">
+            <div id="inquire">
+                <i-input v-model="searchText" icon="ios-search" placeholder="请输入需要查询订单号码" @@on-enter="fetchClients"></i-input>
+            </div>
+        </i-col>
+        <i-col span="24">
+            <i-select v-model="reviewdata" placeholder="查看回顾资料..." @@on-change="teaching">
+                <i-option v-for="item in classteaching" :value="item.id" :key="item.value"> {{ item.id }}--{{ item.teacher_name }} </i-option>
+            </i-select>
+        </i-col>
+        <i-col span="24">
+            <div class="basics">
+                <div class="basicstop">
+                    {{classOrders.ordertape}}--基础信息&nbsp;（{{classOrders.status}}）
+@if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "经理办" || x.Value == "客服部" || x.Value == "客服主管")))
+{                   
+                    <i-button class="handleToggleEdit" type="primary" @@click="handleToggleEdit()">修改基本信息</i-button>
+}
+                </div>
+                <div class="basicsdown">
+                    <p class="course">
+                        订单ID：{{classOrder.orderid}}<br />
+                        课程：{{classOrder.className}} &nbsp;--&nbsp; 学校：{{classOrder.university}} <a :href="'/class/Edit?id=' + classOrders.classId"><i-button type="ghost" size="small">修改课程信息</i-button></a>
+                    </p>
+                    <p class="remark">
+                        备注：{{classOrders.memo}}
+                    </p>
+                </div>
+            </div>
+        </i-col>
+    </div>
+@if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "经理办" || x.Value == "客服部" || x.Value == "客服主管")))
+{
+    <div class="container">
+        <div class="basics">
+            <i-form :model="classOrders" ref="classOrder" :label-width="80">
+
+                <div v-if="editMode">
+                    <div class="basicstop">
+                        <Row>
+                            <div class="classOrder-title">
+                                修改订单信息
+                            </div>
+                        </Row>
+                    </div>
+                        <Row style="margin-top:10px;">
+                            <i-col class="Mbi" span="24">
+                                <Form-item label="课程名称：" prop="Classname">
+                                    <i-select v-model="classOrders.classId" filterable>
+                                        <i-option v-for="item in ClassInfos" :value="item.id" :key="item.id">{{ item.name }}+{{item.professor}}</i-option>
+                                    </i-select>
+                                </Form-item>
+                            </i-col>
+                            <i-col class="Mbi" span="24" v-if="classOrders.ordertape== '课程订单' ">
+                                <Form-item label="客户名称：" prop="Clientname">
+                                    <i-select v-model="classOrder.classOrders.client" filterable>
+                                        <i-option v-for="item in Clients" :value="item.id" :key="item.id">{{ item.name }}</i-option>
+                                    </i-select>
+                                </Form-item>
+                            </i-col>
+                            <i-col class="Mbi" span="24" v-if="classOrders.ordertape== '课程订单' ">
+                                <Form-item label="应付金额：" prop="Price">
+                                    <i-input v-model="classOrder.classOrders.price" placeholder="请输入" style="width:65%; float:left;"></i-input>
+                                    <i-select v-model="classOrder.classOrders.currency" placeholder="请选择币种" style="width:35%;">
+                                        <i-option value="人民币">人民币</i-option>
+                                        <i-option value="美金">美金</i-option>
+                                        <i-option value="欧元">欧元</i-option>
+                                        <i-option value="加拿大币">加拿大币</i-option>
+                                        <i-option value="澳元">澳元</i-option>
+                                    </i-select>
+                                </Form-item>
+                            </i-col>
+                            <i-col class="Mbi" span="24">
+                                <Form-item label="备注信息：">
+                                    <i-input v-model="classOrders.memo" type="textarea" placeholder="请输入..."></i-input>
+                                </Form-item>
+                            </i-col>
+                        </Row>
+                    <Row style="text-align:center;margin-bottom:10px;">
+                        <i-button type="primary" @@click="handleModify()">确认修改</i-button>
+                        <i-button type="primary" @@click="handleCancelModify()">取消</i-button>
+                    </Row>
+                </div>
+
+            </i-form>
+            </div>
+        </div>
+}
+    <div class="container">
+        <i-col span="5">
+            <div class="weekly">
+                <a href="#" class="weeklylist" v-for="(item,index) in classOrder.modules" @@click="weekly(item.moduleid)">
+                    <ul>
+                        <li :class="{'active':ind === index}" v-on:click="weeklylistBackground(index)">第{{item.name}}周-{{item.grade}}分</li>
+                    </ul>
+                </a>
+                @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                {
+                    <i-button class="weeklybutton" v-bind:class="{isweeklybutton:vanish}" type="info" @@click="newly()">+新建</i-button>
+                    <i-button class="weeklybutton" v-bind:class="{isweeklybutton:vanish}" type="error" @@click="deleteCourse()">-删除</i-button>
+                }
+
+            </div>
+        </i-col>
+        <i-col span="19">
+            <Tabs class="tabs" type="card">
+                <Tab-Pane class="tabstab" :label="assignmentName+assignmentGrade">
+                    <div class="newlyWeeklyContent">
+                        <i-button class="weeklytype" type="info" @@click="newlyWeeklyContent(assignmentId)" v-bind:class="{isweeklybutton:vanishs}">+新增一个任务类型</i-button>
+                        <div class="nocontent" v-bind:class="{isnocontent:hide}">请先在左侧点击您需要查看的周程</div>
+                    </div>
+                    <Collapse v-model="value1" accordion>
+                        <Panel v-for="(item,index) in assignmentList">
+                            {{item.contentType}}-{{index+1}}-{{item.grade}}分
+                            <div slot="content" >
+                                @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                {
+                                    <i-button class="deleteContent" type="error" @@click="dekWeeklyContent(item.id)">-删除</i-button>
+                                }
+                                <div class="demo-upload-list" v-for="item in item.Imgs"> 
+                                    <img :src="item.contentUrl" />
+                                    <div class="demo-upload-list-cover">
+                                        <icon type="ios-eye-outline" v-on:click.native="handleView(item)"></icon>
+                                        <icon type="ios-trash-outline" v-on:click.native="handleRemove(item)"></icon>
+                                    </div>
+                                </div>
+                                <Upload multiple
+                                        ref="upload"
+                                        type="select"
+                                        :show-upload-list="false"
+                                        :action="'/File/PostModuleImg?orderId=' + classOrder.orderid +'&moduleId=' + item.moduleId +'&type=Assignment'+'&contentid=' + item.id"
+                                        :format="['jpg','jpeg','png']"
+                                        :max-size="2048"
+                                        :on-progress="handleProgress"
+                                        :on-error="handleError"
+                                        :on-success="handleSuccess"
+                                        :on-exceeded-size="handleMaxSize"
+                                        :before-upload="handleBeforeUpload"
+                                        style="display: inline-block;width:58px;">
+                                    @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                    {
+                                        <i-button id="tabsbutton"  v-bind:class="{isweeklybutton:vanish}" type="primary">
+                                            <span>选择图片上传</span>
+                                        </i-button>
+                                    }
+
+                                </Upload>
+                                @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "人事部" || x.Value == "课导部" || x.Value == "经理办" || x.Value == "课导部主管")))
+                                {
+                                    <div class="graded">
+                                        评分：<I-Input v-model="assignmentInput" placeholder="请输入..." style="width: 50px" ></I-Input>
+                                        <i-button type="primary" @@click="gradedSubmit(item.id,assignmentInput)">提交</i-button>
+                                    </div>      
+                                }
+                            </div>
+                            
+                        </Panel>
+                    </Collapse>
+                </Tab-Pane>
+
+                <Tab-Pane class="tabstab" :label="discussionName+discussionGrade">
+                    <div class="newlyWeeklyContent">
+                        <i-button class="weeklytype" type="info" @@click="newlyWeeklyContent(discussionId)" v-bind:class="{isweeklybutton:vanishs}">+新增一个任务类型</i-button>
+                        <span class="nocontent" v-bind:class="{isnocontent:hide}">请先在左侧点击您需要查看的周程</span>
+                    </div>
+                    <Collapse v-model="value1" accordion>
+                        <Panel v-for="(item,index) in discussionList">
+                            {{item.contentType}}-{{index+1}}-{{item.grade}}分
+                            
+                            <div slot="content">
+                                @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                {
+                                    <i-button class="deleteContent" type="error" @@click="dekWeeklyContent(item.id)">-删除</i-button>
+                                }
+                                <div class="demo-upload-list" v-for="item in item.Imgs">
+                                    <img :src="item.contentUrl" />
+                                    <div class="demo-upload-list-cover">
+                                        <icon type="ios-eye-outline" v-on:click.native="handleView(item)"></icon>
+                                        <icon type="ios-trash-outline" v-on:click.native="handleRemove(item)"></icon>
+                                    </div>
+                                </div>
+                                <Upload multiple
+                                        ref="upload"
+                                        type="select"
+                                        :show-upload-list="false"
+                                        :action="'/File/PostModuleImg?orderId=' + classOrder.orderid +'&moduleId=' + item.moduleId +'&type=Discussion'+'&contentid=' + item.id"
+                                        :format="['jpg','jpeg','png']"
+                                        :max-size="2048"
+                                        :on-progress="handleProgress"
+                                        :on-error="handleError"
+                                        :on-success="handleSuccess"
+                                        :on-exceeded-size="handleMaxSize"
+                                        :before-upload="handleBeforeUpload"
+                                        style="display: inline-block;width:58px;">
+                                    @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                    {
+                                        <i-button id="tabsbutton" v-bind:class="{isweeklybutton:vanish}" type="primary">
+                                            <span>选择图片上传</span>
+                                        </i-button>
+                                    }
+
+                                </Upload>
+                                @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "人事部" || x.Value == "课导部" || x.Value == "经理办" || x.Value == "课导部主管")))
+                                {
+                                    <div class="graded">
+                                        评分：<i-input v-model="discussionInput" placeholder="请输入..." style="width: 50px"></i-input>
+                                        <i-button type="primary" @@click="gradedSubmit(item.id,discussionInput)">提交</i-button>
+                                    </div>
+                                }
+                            </div>
+
+                        </Panel>
+                    </Collapse>
+                </Tab-Pane>
+
+                <Tab-Pane class="tabstab" :label="quizName+quizGrade">
+                    <div class="newlyWeeklyContent">
+                        <i-button class="weeklytype" type="info" @@click="newlyWeeklyContent(quizId)" v-bind:class="{isweeklybutton:vanishs}">+新增一个任务类型</i-button>
+                        <span class="nocontent" v-bind:class="{isnocontent:hide}">请先在左侧点击您需要查看的周程</span>
+                    </div>
+                    <Collapse v-model="value1" accordion>
+                        <Panel v-for="(item,index) in quizList">
+                            {{item.contentType}}-{{index+1}}-{{item.grade}}分
+                            
+                            <div slot="content">
+                                @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                {
+                                    <i-button class="deleteContent" type="error" @@click="dekWeeklyContent(item.id)">-删除</i-button>
+                                }
+                                <div class="demo-upload-list" v-for="item in item.Imgs">
+                                    <img :src="item.contentUrl" />
+                                    <div class="demo-upload-list-cover">
+                                        <icon type="ios-eye-outline" v-on:click.native="handleView(item)"></icon>
+                                        <icon type="ios-trash-outline" v-on:click.native="handleRemove(item)"></icon>
+                                    </div>
+                                </div>
+                                <Upload multiple
+                                        ref="upload"
+                                        type="select"
+                                        :show-upload-list="false"
+                                        :action="'/File/PostModuleImg?orderId=' + classOrder.orderid +'&moduleId=' + item.moduleId +'&type=Quiz'+'&contentid=' + item.id"
+                                        :format="['jpg','jpeg','png']"
+                                        :max-size="2048"
+                                        :on-progress="handleProgress"
+                                        :on-error="handleError"
+                                        :on-success="handleSuccess"
+                                        :on-exceeded-size="handleMaxSize"
+                                        :before-upload="handleBeforeUpload"
+                                        style="display: inline-block;width:58px;">
+                                    @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                    {
+                                        <i-button id="tabsbutton" v-bind:class="{isweeklybutton:vanish}" type="primary">
+                                            <span>选择图片上传</span>
+                                        </i-button>
+                                    }
+
+                                </Upload>
+                                @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "人事部" || x.Value == "课导部" || x.Value == "经理办" || x.Value == "课导部主管")))
+                                {
+                                    <div class="graded">
+                                        评分：<i-input v-model="quizInput" placeholder="请输入..." style="width: 50px"></i-input>
+                                        <i-button type="primary" @@click="gradedSubmit(item.id,quizInput)">提交</i-button>
+                                    </div>
+                                }
+                            </div>
+
+                        </Panel>
+                    </Collapse>
+                </Tab-Pane>
+
+                <Tab-Pane class="tabstab" :label="examName+examGrade">
+                    <div class="newlyWeeklyContent">
+                        <i-button class="weeklytype" type="info" @@click="newlyWeeklyContent(examId)" v-bind:class="{isweeklybutton:vanishs}">+新增一个任务类型</i-button>
+                        <span class="nocontent" v-bind:class="{isnocontent:hide}">请先在左侧点击您需要查看的周程</span>
+                    </div>
+                    <Collapse v-model="value1" accordion>
+                        <Panel v-for="(item,index) in examList">
+                            {{item.contentType}}-{{index+1}}-{{item.grade}}分
+                            
+                            <div slot="content">
+                                @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                {
+                                    <i-button class="deleteContent" type="error" @@click="dekWeeklyContent(item.id)">-删除</i-button>
+                                }
+                                <div class="demo-upload-list" v-for="item in item.Imgs">
+                                    <img :src="item.contentUrl" />
+                                    <div class="demo-upload-list-cover">
+                                        <icon type="ios-eye-outline" v-on:click.native="handleView(item)"></icon>
+                                        <icon type="ios-trash-outline" v-on:click.native="handleRemove(item)"></icon>
+                                    </div>
+                                </div>
+                                <Upload multiple
+                                        ref="upload"
+                                        type="select"
+                                        :show-upload-list="false"
+                                        :action="'/File/PostModuleImg?orderId=' + classOrder.orderid +'&moduleId=' + item.moduleId +'&type=Exam'+'&contentid=' + item.id"
+                                        :format="['jpg','jpeg','png']"
+                                        :max-size="2048"
+                                        :on-progress="handleProgress"
+                                        :on-error="handleError"
+                                        :on-success="handleSuccess"
+                                        :on-exceeded-size="handleMaxSize"
+                                        :before-upload="handleBeforeUpload"
+                                        style="display: inline-block;width:58px;">
+                                    @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+                                    {
+                                        <i-button id="tabsbutton" v-bind:class="{isweeklybutton:vanish}" type="primary">
+                                            <span>选择图片上传</span>
+                                        </i-button>
+                                    }
+
+                                </Upload>
+                                @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "人事部" || x.Value == "课导部" || x.Value == "经理办" || x.Value == "课导部主管")))
+                                {
+                                    <div class="graded">
+                                        评分：<i-input v-model="examInput" placeholder="请输入..." style="width: 50px"></i-input>
+                                        <i-button type="primary" @@click="gradedSubmit(item.id,examInput)">提交</i-button>
+                                    </div>
+                                }
+                            </div>
+
+                        </Panel>
+                    </Collapse>
+                </Tab-Pane>
+            </Tabs>
+        </i-col>
+    </div>
+
+    <div class="container">
+        <div class="principal">
+            <div class="principaltop">
+                负责人
+            </div>
+            <div class="principaldown">
+                <span class="teacher">
+                    负责助教：
+                    @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "课导部")))
+                    {
+                    <span>{{ teacher.name }}</span>
+                    }
+                    @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "经理办" || x.Value == "课导部主管" || x.Value == "客服主管" || x.Value == "人事部")))
+                    {
+                    <a v-if="teacher.qq" target="_blank" :href="'http://wpa.qq.com/msgrd?v=3&uin=' + teacher.qq + '&site=qq&menu=yes'"><img class="qqchat" style="vertical-align:middle;" border="0" :src="'http://wpa.qq.com/pa?p=2:'+teacher.qq+':51'" alt="点击这里给我发消息" title="点击这里给我发消息" /></a>
+                    <i-select v-model="classOrders.teacher" style="width:200px" placeholder="请选择助教">
+
+                        <i-option v-for="item in teachers" :value="item.id" :key="item.id">{{ item.name }}</i-option>
+                    </i-select>
+                    @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "经理办" || x.Value == "课导部主管" || x.Value == "人事部")))
+                        {
+                    <i-button type="primary" @@click="handleAssign()" v-if="classOrders.status == '待分配'">分配</i-button>
+                    <i-button type="primary" @@click="handleAssign()" v-else="classOrders.status == '待分配'">重新分配</i-button>
+                        }
+                    }
+                </span>
+                <span class="cs">
+                    负责客服：
+                    <a v-if="cs.qq" target="_blank" :href="'http://wpa.qq.com/msgrd?v=3&uin=' + cs.qq + '&site=qq&menu=yes'"><img class="qqchat" style="vertical-align:middle;" border="0" :src="'http://wpa.qq.com/pa?p=2:'+cs.qq+':51'" alt="点击这里给我发消息" title="点击这里给我发消息" /></a>
+                    <span>{{ cs.name }}</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="principal">
+            @if (!User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "客服部" || x.Value == "客服主管")))
+            {
+                <div class="principaltop">
+                    订单操作
+                </div>
+                <div class="OrderOperation">
+                    @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "课导部主管" || x.Value == "人事部" || x.Value == "课导部" || x.Value == "经理办")))
+                {
+                        <i-button class="accomplish" type="success" @@click="accomplish()">完成课程</i-button>
+                    }
+                    @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "课导部主管" || x.Value == "经理办" || x.Value == "人事部")))
+                {
+                        <i-button class="finishclass" type="error" @@click="finishclass()">结束课程</i-button>
+                    }
+                    @if (User.HasClaim(x => x.Type == System.Security.Claims.ClaimTypes.Role && (x.Value == "课导部主管" || x.Value == "经理办" || x.Value == "人事部")))
+                {
+                        <i-button class="restart" type="warning" @@click="restart()">重新开启课程</i-button>
+                    }
+                   
+                
+                        <i-button class="delindent" type="error" @@click="delindent()">删除订单</i-button>
+                    
+                </div>
+            }
+            
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="principal">
+            <div class="principaltop">
+                流程记录
+            </div>
+            <ul class="principaldown">
+                <li v-for="flow in flows">
+                    <span class="operator">{{ flow.operator }} :</span>
+                    {{ flow.operation }}
+                    <span class="time">{{ moment(flow.time).format('llll') }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</div>
+
+@section scripts{
+    <script>
+        moment.locale("zh-cn");
+
+        new Vue({
+            el: '#app',
+            data: {
+                //搜索框
+                searchText: "",
+                flows:[],
+                //背景切换索引
+                ind: '',
+                //页面ID
+                id: "",
+                //助教
+                teacher: [],
+                teachers: [],
+                //客服
+                cs: {},
+                css: [],
+                ////下拉框回顾资料
+                reviewdata: '',
+                currentClassOrder: 0,
+                classOrder: [],
+                classteaching: [],
+                ////每周课程
+                currentModule: "",
+                ////每周课程内容
+                currentModuleContent: 0,
+                moduleContents: [],
+                //每周课程内容细分
+                assignmentList: [],
+                discussionList: [],
+                quizList: [],
+                examList: [],
+                //标签页name
+                assignmentName: "任务（Assignment）-",
+                discussionName: "讨论（Discussion）-",
+                quizName: "测试（Quiz）-",
+                examName: "考试（Exam）-",
+                //最大每周课程ID
+                maxModule: [],
+                //控制新建，删除，上传按钮显示隐藏
+                vanishs:true,
+                vanish: false,
+                //显示暂无内容的显示隐藏
+                hide: false,
+                //课程评分
+                assignmentInput: "",
+                discussionInput: "",
+                quizInput: "",
+                examInput: "",
+                //页面上的评分显示
+                assignmentGrade: 0,
+                discussionGrade: 0,
+                quizGrade: 0,
+                examGrade: 0,
+                //currentID
+                assignmentId: "",
+                discussionId: "",
+                quizId: "",
+                examId: "",
+                value1: [],
+                editMode: false,
+                ClassInfos:[],  
+                Clients: [],
+                classOrders:[]
+            },
+            //页面加载前的方法
+            created: function () {
+                var _this = this;
+                console.log(this);
+                //var id;
+                var url = location.search;
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strNum = str.split("=");
+                    _this.id = strNum[1];
+                }
+                //获取基础信息
+                axios.get("/classOrder/get?id=" + _this.id).then(function (response) {
+                    _this.classOrder = response.data;
+                    _this.classOrder.id = _this.classOrder.orderid;
+                    _this.classOrders = _this.classOrder.classOrders;
+                    _this.fetchFlow();
+                    //隐藏新建，删除，上传按钮
+                    if (_this.classOrder.classOrders.status == "已结课" || _this.classOrder.classOrders.status == "已删除") {
+                        _this.vanish = true
+                    } else {
+                        _this.vanish = false
+                    }
+                    //在查询回顾资料的下拉框中显示当前课程订单有多少助教上过
+                    axios.get("/classOrder/Check?classId=" + _this.classOrder.classOrders.classId)
+                        .then(function (response) {
+                            _this.classteaching = response.data;
+                            //通过助教ID显示助教姓名
+                            for (var j = 0; j < _this.classteaching.length; j++) {
+                                _this.setUserName(_this.classteaching[j].teacher, j);
+                            }
+                            //给课导部在负责人那里显示当前客服名称
+                            _this.queryUserName();
+                            //通过当前订单的客服ID查询客服名称
+                            axios.get("/api/user/" + _this.classOrder.classOrders.cs).then(function (response) {
+                                _this.cs = response.data;
+                            }).catch(function (error) {
+                                console.log(error);
+                            });
+                        })
+                        .catch(function (err) {
+                            console.log(err);
+                        })
+                    axios.get("/api/class/").then(function (response) {
+                        _this.ClassInfos = response.data;
+                    }).catch(function (error) {
+                        _this.$Message.error('查询客户失败!' + error.response.data);
+                    });
+                    axios.get("/api/client/").then(function (response) {
+                        _this.Clients = response.data;
+                    }).catch(function (error) {
+                        _this.$Message.error('查询客户失败!' + error.response.data);
+                    });
+                });
+                
+                _this.fetchPeople();
+            },
+            methods: {
+                //刷新页面的方法
+                gainInformation: function () {
+                    var _this = this;
+                    axios.get("/classOrder/get?id=" + _this.classOrder.orderid).then(function (response) {
+                        _this.classOrder = response.data;
+                        _this.classOrders = _this.classOrder.classOrders;
+                        _this.fetchFlow();
+                        if (_this.classOrder.classOrders.status == "已结课" || _this.classOrder.classOrders.status == "已删除") {
+                            _this.vanish = true
+                        } else {
+                            _this.vanish = false
+                        }
+                    });
+                },
+                //通过助教ID显示助教姓名的方法
+                setUserName: function (uid, index) {
+                    var _this = this;
+                    axios.get("/api/user/" + uid).then(function (response) {
+                        _this.classteaching[index].teacher_name = response.data.name;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                //查询当前订单的助教
+                queryUserName: function () {
+                    var _this = this;
+                    axios.get("/api/user/" + _this.classOrder.classOrders.teacher).then(function (response) {
+                        _this.teacher = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                //放大显示图片的方法
+                handleView: function (item) {
+                    var _this = this;
+                    //图片放大显示
+                    var config = {
+                        title: 'test',
+                        content: '<img src="' + item.contentUrl + '" />',
+                        width: "750"
+                    };
+                    this.$Modal.info(config);
+                },
+                //删除图片的方法
+                handleRemove: function (file) {
+                    if (confirm("确定要删除当前图片么?")) { 
+                        var _this = this;
+                        axios.get("/classOrder/DelImg", {
+                            params: {
+                                contentId: file.id,
+                                imgurl: file.contentUrl,
+                                orderid: _this.classOrder.orderid
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('图片删除成功!');
+                            console.log(response);
+                            _this.refreshClasses();
+                        }).catch(function (error) {
+                              _this.$Message.error('操作失败,' + error.response.data);
+                            _this.refreshClasses();
+                            console.log(error);
+                        });
+                    }
+                },
+                //上传内容前的方法
+                handleBeforeUpload: function (file) {
+                    var pattern = /[$&,:;=?@@#|'<>^*%!]/;
+                    console.log(file);
+                    if (file.name.match(pattern)) {
+                        this.$Message.error("上传文件名不能包含#,@@,$,%,!,<>等特殊符号，请检查后重新上传！")
+                        return false;
+                    }
+                },
+                //文件上传时的方法
+                handleProgress: function (file) { 
+                    var _this = this;
+                    _this.toLoadingTrue();
+                    this.$Notice.warning({
+                        title: '文件上传中...',
+                        duration: 1
+                    });
+                    console.log("上传时");
+                },
+                //上传成功后刷新内容的方法
+                handleSuccess: function (res, file) {
+                    var _this = this;
+                    //_this.$Message.success('文件上传成功!');
+                    _this.toLoadingFalse();
+                    this.$Notice.success({
+                        title: '文件上传成功',
+                        duration: 1
+                    });
+                    console.log("上传成功后");
+                    _this.refreshClasses();
+                },
+                //上传失败的方法
+                handleError: function () { 
+                    var _this = this;
+                    _this.toLoadingFalse();
+                    this.$Notice.error({
+                        title: '文件上传失败',
+                        duration: 1
+                    });
+                    _this.refreshClasses();
+                },
+                //上传文件大小的方法
+                handleMaxSize: function (file) {
+                    this.$Notice.warning({
+                        title: 'Exceeding file size limit',
+                        desc: 'File  ' + file.name + ' is too large, no more than 2M.'
+                    });
+                },
+                //上传按钮的禁用
+                toLoadingTrue:function() { 
+                    var _this = this;
+                    document.getElementById("tabsbutton").disabled = true;
+                },
+                //上传按钮的开启
+                toLoadingFalse: function () {
+                    var _this = this;
+                    document.getElementById("tabsbutton").disabled = false;
+                },
+                //通过订单ID搜索查询页面
+                fetchClients: function () {
+                    var _this = this;
+                    if (_this.searchText == "") { 
+                        axios.get("/classOrder/get?id=" + _this.id).then(function (response) {
+                            _this.classOrder = response.data;
+                            _this.classOrder.id = _this.classOrder.orderid;
+                            _this.classOrders = _this.classOrder.classOrders;
+                            _this.fetchFlow();
+                            if (_this.classOrder.classOrders.status == "已结课" || _this.classOrder.classOrders.status == "已删除") {
+                                _this.vanish = true
+                            } else {
+                                _this.vanish = false
+                            }
+                        });
+                    } else {
+                        axios.get("/classOrder/get?id=" + _this.searchText).then(function (response) {
+                            _this.classOrder = response.data;  
+                            _this.classOrder.id = _this.classOrder.orderid;
+                            _this.classOrders = _this.classOrder.classOrders;
+                            _this.fetchFlow();
+                            if (_this.classOrder.classOrders.status == "已结课" || _this.classOrder.classOrders.status == "已删除") {
+                                _this.vanish = true
+                            } else {
+                                _this.vanish = false
+                            }
+                        });
+
+                    }
+                    
+                    
+                },
+                //新增每周课程
+                newly: function () {
+                    if (confirm("确定新增加一周课程么?")) {
+                        var _this = this;
+                        axios.post('/classOrder/add', this.classOrder, {
+                            params: {
+                                classOrderid: this.classOrder.orderid
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('操作成功!');
+                            
+                            _this.gainInformation();
+                          
+                        }).catch(function (error) {
+                            _this.$Message.error('操作失败,' + error.response.data);
+                            console.log(error)
+                        });
+                    }
+                },
+                //删除每周课程
+                deleteCourse: function () {
+                    if (confirm("确定要删除最后一周课程么?")) {
+                        var _this = this;
+                        for (item in _this.classOrder.modules) {
+                            _this.maxModule = _this.classOrder.modules[item].moduleid;
+                        }
+                        axios.get("/classOrder/Del", {
+                            params: {
+                                orderid: _this.classOrder.orderid,
+                                moduleid: _this.maxModule
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('操作成功!'); 
+                            _this.gainInformation();
+                        }).catch(function (error) {
+                            _this.$Message.error('操作失败,' + error.response.data);
+                            console.log(error.response.data);
+                        })
+                    }
+                },
+                //点击变更每周课程列表的背景颜色
+                weeklylistBackground: function (index) {
+                    var _this = this;
+                    _this.ind = index;
+                },
+                //刷新每周课程里的内容方法
+                refreshClasses: function () {
+                    var _this = this;
+                    axios.get("/classOrder/getmodule?moduleid=" + _this.currentModule).then(function (response) {
+                        _this.moduleContents = response.data;
+                        //拿到当前课程内容ID
+                        _this.assignmentId = _this.moduleContents[0].id;
+                        axios.get("/classOrder/GetContentSubset?contentid=" + _this.assignmentId).then(function (response) {
+                            _this.assignmentList = response.data;
+                            for (var i = 0; i < _this.assignmentList.length; i++) {
+                                if (_this.assignmentList[i].contents == "") { 
+                                    _this.assignmentList[i].contents == null
+                                } else {
+                                    _this.assignmentList[i].Imgs = _this.getUrlList(_this.assignmentList[i]);
+
+
+                                }
+                            }
+                        });
+                        
+                        _this.discussionId = _this.moduleContents[1].id;
+                        axios.get("/classOrder/GetContentSubset?contentid=" + _this.discussionId).then(function (response) {
+                            _this.discussionList = response.data;
+                            for (var i = 0; i < _this.discussionList.length; i++) {
+                                if (_this.discussionList[i].contents == "") {
+                                    _this.discussionList[i].contents == null
+                                } else {
+                                    _this.discussionList[i].Imgs = _this.getUrlList(_this.discussionList[i]);
+                                }
+                                
+                            }
+                        });
+
+                        _this.quizId = _this.moduleContents[2].id;
+                        axios.get("/classOrder/GetContentSubset?contentid=" + _this.quizId).then(function (response) {
+                            _this.quizList = response.data;
+                            for (var i = 0; i < _this.quizList.length; i++) {
+                                if (_this.quizList[i].contents == "") {
+                                    _this.quizList[i].contents == null
+                                } else {
+                                    _this.quizList[i].Imgs = _this.getUrlList(_this.quizList[i]);
+                                }
+                                
+                            }
+                        });
+                        _this.examId = _this.moduleContents[3].id;
+                        axios.get("/classOrder/GetContentSubset?contentid=" + _this.examId).then(function (response) {
+                            _this.examList = response.data;
+                            for (var i = 0; i < _this.examList.length; i++) {
+                                if (_this.examList[i].contents == "") {
+                                    _this.examList[i].contents == null
+                                } else {
+                                    _this.examList[i].Imgs = _this.getUrlList(_this.examList[i]);
+                                }
+                                
+                            }
+                        });
+                        //拿到当前评分
+                        _this.assignmentGrade = _this.moduleContents[0].grade;
+                        _this.discussionGrade = _this.moduleContents[1].grade;
+                        _this.quizGrade = _this.moduleContents[2].grade;
+                        _this.examGrade = _this.moduleContents[3].grade;                                             
+                    });
+                },
+                //点击查询每周课程内容
+                weekly: function (e) {
+                    var _this = this;
+                    _this.currentModule = e;
+                    //清零当前图片
+                    _this.assignmentList.length = 0;
+                    _this.discussionList.length = 0;
+                    _this.quizList.length = 0;
+                    _this.examList.length = 0;
+                    //清零当前评分
+                    _this.assignmentGrade = 0;
+                    _this.discussionGrade = 0;
+                    _this.quizGrade = 0;
+                    _this.examGrade = 0;
+                    //查询每周课程内容
+                    _this.hide = true;
+                    _this.vanishs = false;
+                    if (_this.classOrder.classOrders.status == "已结课" || _this.classOrder.classOrders.status == "已删除") {
+                        _this.vanish = true
+                        _this.vanishs = true
+                    } else {
+                        _this.vanish = false
+                        _this.vanishs = false
+                    }
+                    _this.refreshClasses();
+                },
+                getGrade: function () {
+                    var _this = this;
+                    if (_this.moduleContents[0].grade == 0) {
+                        _this.assignmentGrade = 0
+                    } else {
+                        _this.assignmentGrade = _this.moduleContents[0].grade
+                    }
+                },
+                //将图片的ID和路径保存到outputList的方法
+                getUrlList: function (rawList) {
+                    var imgUrlArray = rawList.contents.split('|');
+                    var outputList = [];
+                    for (var i = 0; i < imgUrlArray.length; i++) {
+                        outputList.push({
+                            id: rawList.id,
+                            contentUrl: imgUrlArray[i]
+                        });
+                    }
+                    return outputList;
+                },
+                //下拉框助教名称和得分
+                teaching: function (id) {
+                    var _this = this;
+                    _this.hide = false;
+                    axios.get("/classOrder/get?id=" + id).then(function (response) {
+                        _this.classOrder = response.data;
+                        _this.classOrder.id = _this.classOrder.orderid;
+                        _this.classOrders = _this.classOrder.classOrders;
+                        _this.fetchFlow();
+                        console.log(_this);
+                        if (_this.classOrder.classOrders.status == "已结课" || _this.classOrder.classOrders.status == "已删除") {
+                            _this.vanish = true
+                        } else {
+                            _this.vanish = false
+                        }
+                        //_this.gainInformation();
+
+                    });
+                },
+                //查询助教和客服的方法
+                fetchPeople: function () {
+                    var _this = this;
+                    axios.get("/api/user/group/负责助教").then(function (response) {
+                        _this.teachers = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                    axios.get("/api/user/group/负责客服").then(function (response) {
+                        _this.css = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                //分配订单的方法
+                handleAssign: function () {
+                    this.classOrder.classOrders.status = "进行中";
+                    var _this = this;
+                    axios.post("/api/classOrder/assign", _this.classOrders).then(function (response) {
+                        _this.$Message.success('操作成功!');
+                        _this.gainInformation();
+                        console.log(response);
+                    }).catch(function (error) {
+                        _this.$Message.error('操作失败!' + error.response.data);
+                    })
+                },
+                //更改订单状态的方法
+                changeStatus: function () {
+                    var _this = this;
+                    axios.get("/classOrder/ChangeStatus", {
+                        params: {
+                            orderid: _this.classOrder.orderid,
+                            type: _this.classOrder.classOrders.status
+                        }
+                    }).then(function (response) {
+                        _this.$Message.success('操作成功!');
+                        _this.gainInformation();
+                    }).catch(function (error) {
+                        _this.$Message.error('操作失败，' + error.response.data);
+                        _this.gainInformation();
+                        console.log(error);
+                    })
+                },
+                //完成订单的方法
+                accomplish: function () {
+                    if (confirm("确定要完成该订单么?")) {
+                        var _this = this;
+                        this.classOrder.classOrders.status = "已完成";
+                        axios.get("/classOrder/Finish", {
+                            params: {
+                                orderid: _this.classOrder.orderid
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('操作成功!');
+                            _this.gainInformation();
+                        }).catch(function (error) {
+                            _this.$Message.error('操作失败，' + error.response.data);
+                            _this.gainInformation();
+                            console.log(error);
+                        })
+                    }
+                },
+                //结束课程的方法
+                finishclass: function () {
+                    if (confirm("确定要结束该订单么?")) {
+                        var _this = this;
+                        this.classOrder.classOrders.status = "已结课";
+                        axios.get("/classOrder/Over", {
+                            params: {
+                                orderid: _this.classOrder.orderid
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('操作成功!');
+                            _this.gainInformation();
+                        }).catch(function (error) {
+                            _this.$Message.error('操作失败，' + error.response.data);
+                            _this.gainInformation();
+                            console.log(error);
+                        })
+                    }
+                },
+                //重新开启课程的方法
+                restart: function () {
+                    if (confirm("确定要重新开始该订单么?")) {
+                        var _this = this;
+                        this.classOrder.classOrders.status = "进行中";
+                        axios.get("/classOrder/Reopen", {
+                            params: {
+                                orderid: _this.classOrder.orderid
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('操作成功!');
+                            _this.gainInformation();
+                        }).catch(function (error) {
+                            _this.$Message.error('操作失败，' + error.response.data);
+                            _this.gainInformation();
+                            console.log(error);
+                        })
+                    }
+                },
+                //删除订单的方法
+                delindent: function () { 
+                    if (confirm("确定要删除该该订单么?")) {
+                        var _this = this;
+                        this.classOrder.classOrders.status = "已删除";
+                        axios.get("/classOrder/DelOrder", {
+                            params: {
+                                orderid: _this.classOrder.orderid
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('操作成功!');
+                            _this.gainInformation();
+                        }).catch(function (error) {
+                            _this.$Message.error('操作失败，' + error.response.data);
+                            _this.gainInformation();
+                            console.log(error);
+                        })
+                    }
+                },
+                //提交评分的方法
+                gradedSubmit: function (contentid, graded) {
+                    var _this = this;
+                    axios.get("/classOrder/save", {
+                        params: {
+                            orderid: _this.classOrder.orderid,
+                            contentid: contentid,
+                            grade: graded
+                        }
+                    }).then(function (response) {
+                        _this.$Message.success('操作成功!');
+                        _this.assignmentInput = "",
+                            _this.discussionInput = "",
+                            _this.quizInput = "",
+                            _this.examInput = "",
+                            _this.refreshClasses();
+                            _this.gainInformation();
+                    }).catch(function (error) {
+                        _this.$Message.error('操作失败，' + error.response.data);
+                        _this.gainInformation();
+                        console.log(error);
+                    })
+                },
+                //新增每周课程内容的方法
+                newlyWeeklyContent: function (contentid) { 
+                    var _this = this;
+                    axios.post('/classOrder/Addcontent', _this.classOrder, {
+                        params: {
+                            orderid: _this.classOrder.orderid,
+                            contentid: contentid
+                        }
+                    }).then(function (response) {
+                        _this.$Message.success('操作成功!');
+                        _this.refreshClasses();
+                        _this.gainInformation();
+                    }).catch(function (error) {
+                        _this.$Message.error('操作失败,' + error.response.data);
+                        _this.gainInformation();
+                        console.log(error)
+                    });
+                },
+                //删除每周课程内容
+                dekWeeklyContent: function (contentid) { 
+                    if (confirm("确定要删除当前内容么?")) { 
+                        var _this = this;
+                        axios.get("/classOrder/Delcontent", {
+                            params: {
+                                orderid: _this.classOrder.orderid,
+                                contentid: contentid
+                            }
+                        }).then(function (response) {
+                            _this.$Message.success('操作成功!');
+                            _this.refreshClasses();
+                            _this.gainInformation();
+                        }).catch(function (error) {
+                            _this.$Message.error('操作失败，' + error.response.data);
+                            _this.gainInformation();
+                            console.log(error);
+                        })
+                    }
+                    
+                },
+                //流程记录
+                fetchFlow: function () {
+                    var _this = this;
+                    axios.get("/api/classflow/" + _this.classOrder.orderid).then(function (response) {
+                        _this.flows = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                },
+                //过滤器
+                formatTime: function (val) {
+                    return moment(val).format('llll');
+                },
+                //展开基本信息的方法
+                handleToggleEdit: function () { 
+                    var _this = this;
+                    if (this.editMode) {
+                        this.handleCancelModify();
+                    }
+                    else {
+                        this.editMode = true;
+                    }
+                },
+                //提交基本信息的方法
+                handleModify: function () { 
+                    var _this = this;
+                    axios.post('/classOrder/UpdateOrder', _this.classOrders).then(function (response) {
+                        _this.$Message.success('操作成功!');
+                        _this.gainInformation();
+                    }).catch(function (error) {
+                        _this.$Message.error('操作失败,' + error.response.data);
+                        _this.gainInformation();
+                        console.log(error)
+                    });
+                },
+                //收缩基本信息的方法
+                handleCancelModify: function () { 
+                    var _this = this;
+                    this.editMode = false;
+                }
+            }
+        })
+    </script>
+}

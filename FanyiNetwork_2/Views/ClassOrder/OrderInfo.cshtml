@@ -1,0 +1,136 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+@section styles{
+    <style type="text/css">
+        th {
+            text-align: center;
+        }
+
+        .Success {
+            color: #19be6b;
+        }
+
+        .Warning {
+            color: #ff9900;
+        }
+
+        .Error {
+            font-weight: bold;
+            color: #ed3f14;
+        }
+    </style>
+}
+
+<div class="layout-content">
+
+    <div class="container" style="max-width:100%;">
+        <div class="assignment-title" style="text-align:center; font-size:14px;">
+
+            <Icon type="person"></Icon>
+            <span style="margin-right:10px;">{{className}}的全部订单</span>
+
+
+        </div>
+        <i-table :columns="columns" :data="classOrders"></i-table>
+    </div>
+
+</div>
+@section scripts{
+    <script>
+
+        moment.locale("zh-cn");
+
+        var currentYear = moment().year();
+        var currentMonth = moment().month() + 1;
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                columns: [
+                    {
+                        title: '单号',
+                        render: function (row) {
+                            return '<a @@click="skip(' + row.id + ')"> {{row.id}} </a>'
+                        }
+                    },
+                    {
+                        title: '类型',
+                        key: 'ordertape'
+                    },
+                    {
+                        title: '状态',
+                        key: 'status'
+                    },
+                    {
+                        title: '建立时间',
+                        render: function (row) {
+                            if (row.addTime == "0001-01-01T00:00:00") {
+                                return row.addTime = "暂无时间";
+                            } else {
+                                return moment(row.addTime).format('lll');
+                            }
+                        }
+                    },
+                    {
+                        title: '分配时间',
+                        render: function (row) {
+                            if (row.assignTime == "0001-01-01T00:00:00") {
+                                return row.assignTime = "暂无时间";
+                            } else {
+                                return moment(row.assignTime).format('lll');
+                            }
+                        }
+                    },
+                    {
+                        title: '结课时间',
+                        render: function (row) {
+                            if (row.finishDue == "0001-01-01T00:00:00") {
+                                return row.finishDue = "暂无时间";
+                            } else {
+                                return moment(row.finishDue).format('lll');
+                            }
+                        }
+                    }
+                ],
+                classOrders: [],
+                classid: "",
+                className:""
+            },
+            created: function () {
+                var _this = this;
+                var url = location.search;
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strNum = str.split("=");
+                    _this.classid = strNum[1];
+                }
+                console.log(_this);
+                this.fetchData();
+                
+            },
+            methods: {
+                fetchData: function () {
+                    var _this = this;
+                    axios.get("/class/GetOrder?classid=" + _this.classid).then(function (response) {
+                        _this.classOrders = response.data;
+                        axios.get("/api/class/" + _this.classid).then(function (response) {
+                            _this.className = response.data.name;
+                        }).catch(function (error) {
+
+                        });
+                    }).catch(function (error) {
+                        
+                    });
+                },
+                skip: function (id) {
+                    window.location.href = "/ClassOrder/Detail?id=" + id;
+
+                }
+            }
+        })
+            
+
+    </script>
+}

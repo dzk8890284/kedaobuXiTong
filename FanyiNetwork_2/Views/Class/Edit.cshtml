@@ -1,0 +1,158 @@
+﻿@model FanyiNetwork.Models.Client
+
+@{
+    Layout = "_Layout";
+}
+
+@section styles{
+    <style type="text/css">
+        .principal {
+            border: 1px solid #d7dde4;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .principaltop {
+            border-bottom: 1px solid #d7dde4;
+            background-color: #F6F6F6;
+            height: 30px;
+            line-height: 30px;
+            padding-left: 20px;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .principaldown {
+            background-color: #ffffff;
+            line-height: 30px;
+            padding: 10px;
+        }
+        .time {
+            float: right;
+            margin-right: 10px;
+        }
+
+        .operator {
+            margin-left: 10px;
+        }
+    </style>
+
+}
+<div class="layout-content">
+    <div class="container">
+        <i-form :model="ClassInfo" ref="ClassInfo" :label-width="80">
+            <Row>
+                <i-col span="24">
+                    <Form-item label="课程名称">
+                        <i-input v-model="ClassInfo.name"></i-input>
+                    </Form-item>
+                </i-col>
+                <i-col span="24">
+                    <Form-item label="大学名称">
+                        <i-input v-model="ClassInfo.university"></i-input>
+                    </Form-item>
+                </i-col>
+                <i-col span="24">
+                    <Form-item label="难度系数">
+                        <i-select v-model="ClassInfo.difficulty" filterable>
+                            <i-option value="1.0">1.0</i-option>
+                            <i-option value="1.3">1.3</i-option>
+                            <i-option value="1.6">1.6</i-option>
+                            <i-option value="2.0">2.0</i-option>
+                        </i-select>
+                    </Form-item>
+                </i-col>
+                <i-col span="24">
+                    <Form-item label="教授名称">
+                        <i-input v-model="ClassInfo.professor"></i-input>
+                    </Form-item>
+                </i-col>
+            </Row>
+            <Row>
+                <i-col span="24">
+                    <Form-item label="备注">
+                        <i-input v-model="ClassInfo.memo" type="textarea"></i-input>
+                    </Form-item>
+                </i-col>
+            </Row>
+            <Row style="text-align:center;">
+                <i-button type="primary" @@click="handleSubmit()">确定</i-button>
+                <a href="/class/index"><i-button type="ghost" style="margin-left: 8px">返回</i-button></a>
+            </Row>
+        </i-form>
+        <div class="principal">
+            <div class="principaltop">
+                流程记录
+            </div>
+            <ul class="principaldown">
+                <li v-for="flow in flows">
+                    <span class="operator">{{ flow.operator }} :</span>
+                    {{ flow.operation }}
+                    <span class="time">{{ moment(flow.time).format('llll') }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+
+        moment.locale("zh-cn");
+
+        new Vue({
+            el: '#app',
+            data: {
+                flows: [],
+                id: "",
+                ClassInfo: []
+            },
+            created: function () {
+                var _this = this;
+                //var id;
+                var url = location.search;
+                if (url.indexOf("?") != -1) {
+                    var str = url.substr(1);
+                    var strNum = str.split("=");
+                    _this.id = strNum[1];  
+                }
+                axios.get("/api/Class/" + _this.id).then(function (response) {
+                    _this.ClassInfo = response.data;
+                    console.log(_this);
+                    _this.fetchFlow();
+                })
+            },
+            methods: {
+                handleSubmit: function (val) {
+                    if (confirm("确定修改当前课程信息么？")) {
+                        var _this = this;
+                        if (_this.ClassInfo.name == "" || _this.ClassInfo.university == "" || _this.ClassInfo.professor == "" ){ 
+                            return _this.$Message.error('修改课程信息失败,信息不能为空!');;
+                        } else {
+                            axios.post("/api/class/edit", this.ClassInfo).then(function (response) {
+                                _this.$Message.success('课程信息修改成功!');
+                                setTimeout(function () {
+                                    window.location.href = "/class/index";
+                                }, 300);
+                            }).catch(function (error) {
+                                    _this.$Message.error('修改课程信息失败!' + error.response.data);
+                                });
+                        }
+                    }
+                },
+                fetchFlow: function () {
+                    var _this = this;
+                    axios.get("/api/classinfoflow/" + _this.id).then(function (response) {
+                        _this.flows = response.data;
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
+                }
+
+            }
+        })
+
+
+    </script>
+}
